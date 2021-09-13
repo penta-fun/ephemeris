@@ -4,6 +4,7 @@ import requests
 import os
 from dotenv import load_dotenv
 
+
 client = discord.Client()
 load_dotenv()
 
@@ -37,7 +38,7 @@ async def on_message(message):
             await message.channel.send("The full moon is upon us tonight :full_moon:")
         elif data["dayssince"] < 4:
             await message.channel.send(
-                "The moon is in waning gibbous tonight :waning_gibbous_moon: \n"
+                "The moon is waning gibbous tonight :waning_gibbous_moon: \n"
                 + "The last full moon was "
                 + str(data["dayssince"])
                 + " days ago"
