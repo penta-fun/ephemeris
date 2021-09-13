@@ -13,10 +13,10 @@ def get_isitfullmoon_data():
         "isitfullmoon"
     ]
 
-    prev_moon = datetime.date.today() - datetime.date.fromtimestamp(data["prev"])
-    next_moon = datetime.date.fromtimestamp(data["next"]) - datetime.date.today()
-    data["dayssince"] = prev_moon.days
-    data["daystill"] = next_moon.days
+    prevmoon = datetime.date.today() - datetime.date.fromtimestamp(data["prev"])
+    nextmoon = datetime.date.fromtimestamp(data["next"]) - datetime.date.today()
+    data["dayssince"] = prevmoon.days
+    data["daystill"] = nextmoon.days
 
     return data
 
