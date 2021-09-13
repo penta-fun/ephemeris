@@ -1,30 +1,29 @@
-# https://discordpy.readthedocs.io/en/stable/quickstart.html
-
 import discord
-import requests
 import datetime
+import requests
 import os
+from dotenv import load_dotenv
 
 client = discord.Client()
+load_dotenv()
+
 
 def get_isitfullmoon_data():
     data = requests.get("http://isitfullmoon.com/api.php?format=json").json()[
         "isitfullmoon"
     ]
-    # data returned here is a dict in the form of e.g.
-    # {'status': 'No', 'prev': 1629633735.4484706, 'next': 1632182084.4270184}
 
-    foo = datetime.date.today() - datetime.date.fromtimestamp(data["prev"])
-    footwo = datetime.date.fromtimestamp(data["next"]) - datetime.date.today()
-    data["dayssince"] = foo.days  # int of days since last full moon
-    data["daystill"] = footwo.days  # int of days till next full moon
+    prev_moon = datetime.date.today() - datetime.date.fromtimestamp(data["prev"])
+    next_moon = datetime.date.fromtimestamp(data["next"]) - datetime.date.today()
+    data["dayssince"] = prev_moon.days
+    data["daystill"] = next_moon.days
 
     return data
 
 
 @client.event
 async def on_ready():
-    print("We have logged in as {0.user}".format(client))
+    print("Logged in as {0.user}".format(client))
 
 
 @client.event
@@ -35,7 +34,7 @@ async def on_message(message):
     if message.content.startswith("!moon"):
         data = get_isitfullmoon_data()
         if data["status"] == "Yes":
-            await message.channel.send("The full moon is upon us tonight! :full_moon:")
+            await message.channel.send("The full moon is upon us tonight :full_moon:")
         elif data["dayssince"] < 4:
             await message.channel.send(
                 "The moon is in waning gibbous tonight :waning_gibbous_moon: \n"
@@ -52,7 +51,7 @@ async def on_message(message):
             )
         elif data["dayssince"] < 12:
             await message.channel.send(
-                "The moon is in waning crescent tonight :waning_crescent_moon: \n"
+                "The moon is waning crescent tonight :waning_crescent_moon: \n"
                 + "The last full moon was "
                 + str(data["dayssince"])
                 + " days ago"
@@ -66,7 +65,7 @@ async def on_message(message):
             )
         elif data["dayssince"] < 20:
             await message.channel.send(
-                "The moon is in waxing crescent tonight :waxing_crescent_moon: \n"
+                "The moon is waxing crescent tonight :waxing_crescent_moon: \n"
                 + "The next full moon is in "
                 + str(data["daystill"])
                 + " days"
@@ -80,7 +79,7 @@ async def on_message(message):
             )
         elif data["dayssince"] < 28:
             await message.channel.send(
-                "The moon is in waxing gibbous tonight :waxing_gibbous_moon: \n"
+                "The moon is waxing gibbous tonight :waxing_gibbous_moon: \n"
                 + "The next full moon is in "
                 + str(data["daystill"])
                 + " days"
