@@ -1,11 +1,15 @@
 # https://discordpy.readthedocs.io/en/stable/quickstart.html
 
-import discord
-import requests
 import datetime
 import os
+from dotenv import load_dotenv
+
+import discord
+import requests
 
 client = discord.Client()
+load_dotenv()
+
 
 def get_isitfullmoon_data():
     data = requests.get("http://isitfullmoon.com/api.php?format=json").json()[
