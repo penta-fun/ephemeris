@@ -7,7 +7,6 @@ import os
 
 client = discord.Client()
 
-
 def get_isitfullmoon_data():
     data = requests.get("http://isitfullmoon.com/api.php?format=json").json()[
         "isitfullmoon"
@@ -93,4 +92,4 @@ async def on_message(message):
             )
 
 
-client.run(os.environ['BOT_TOKEN'])
+client.run(os.getenv("BOT_TOKEN"))
