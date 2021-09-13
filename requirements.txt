@@ -1,4 +1,4 @@
-dotenv
+dotenv==0.0.5
 discord
 datetime
 requests==2.26.0
