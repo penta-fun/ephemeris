@@ -3,7 +3,10 @@ import os
 from dotenv import load_dotenv
 
 import discord
+import datetime
 import requests
+import os
+
 
 client = discord.Client()
 load_dotenv()
