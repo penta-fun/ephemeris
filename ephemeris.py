@@ -1,8 +1,8 @@
 # https://discordpy.readthedocs.io/en/stable/quickstart.html
 
 import discord
-import requests
 import datetime
+import requests
 import os
 
 client = discord.Client()
