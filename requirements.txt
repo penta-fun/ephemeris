@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 dotenv
-=======
->>>>>>> 09ad30abc14aa80081ff84ff894f9fbd3811b61b
 discord
 datetime
 requests==2.26.0
