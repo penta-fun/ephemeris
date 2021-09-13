@@ -45,7 +45,7 @@ async def on_message(message):
             )
         elif data["dayssince"] < 8:
             await message.channel.send(
-                "The moon is in third quarter tonight :last_quarter_moon: \n"
+                "The moon is third quarter tonight :last_quarter_moon: \n"
                 + "The last full moon was "
                 + str(data["dayssince"])
                 + " days ago"
@@ -73,7 +73,7 @@ async def on_message(message):
             )
         elif data["dayssince"] < 24:
             await message.channel.send(
-                "The moon is in first quarter tonight :first_quarter_moon: \n"
+                "The moon is first quarter tonight :first_quarter_moon: \n"
                 + "The next full moon is in "
                 + str(data["daystill"])
                 + " days"
