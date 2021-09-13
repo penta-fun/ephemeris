@@ -3,9 +3,7 @@
 import discord
 import requests
 import datetime
-from dotenv import load_dotenv
 import os
-load_dotenv('.env')
 
 client = discord.Client()
 
