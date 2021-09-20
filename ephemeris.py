@@ -1,12 +1,12 @@
 import discord
 import datetime
 import requests
-import os
 from dotenv import load_dotenv
+import os
 
-
-client = discord.Client()
 load_dotenv()
+client = discord.Client()
+BOT_TOKEN = os.getenv('BOT_TOKEN')
 
 
 def get_isitfullmoon_data():
@@ -25,7 +25,7 @@ def get_isitfullmoon_data():
 @client.event
 async def on_ready():
     print("Logged in as {0.user}".format(client))
-
+    await message.channel.send("henlo")
 
 @client.event
 async def on_message(message):
@@ -92,4 +92,4 @@ async def on_message(message):
             )
 
 
-client.run(os.getenv("BOT_TOKEN"))
+client.run(BOT_TOKEN)

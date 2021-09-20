@@ -1,4 +1,4 @@
 python-dotenv==0.19.0
-discord
+discord.py==1.7.3
 datetime
 requests==2.26.0
