@@ -1,1 +1,2 @@
-worker: python3 ephemeris.py
+heroku ps:scale web=0
+worker: python ephemeris.py
