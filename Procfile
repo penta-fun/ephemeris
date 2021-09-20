@@ -1,1 +1,1 @@
-worker: python ephemeris.py
+worker: python3 ephemeris.py
