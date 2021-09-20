@@ -25,7 +25,7 @@ def get_isitfullmoon_data():
 @client.event
 async def on_ready():
     print("Logged in as {0.user}".format(client))
-
+    await message.channel.send("henlo")
 
 @client.event
 async def on_message(message):
