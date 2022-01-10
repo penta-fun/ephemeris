@@ -1,3 +1,5 @@
+# https://discordpy.readthedocs.io/en/stable/quickstart.html
+
 import discord
 import datetime
 import requests
